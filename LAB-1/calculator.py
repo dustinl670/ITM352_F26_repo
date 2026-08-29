@@ -16,25 +16,32 @@ def divide(a, b):
     return a / b
 
 
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide,
+}
+
+
 while True:
     try:
+        print("\nCalculator Menu")
+        print("Available operations: +, -, *, /")
         num1 = float(input("Enter the first number: "))
         num2 = float(input("Enter the second number: "))
-        operation = input("Choose an operation (+, -, *, /): ")
+        operation = input("Choose an operation: ")
 
-        if operation == '+':
-            result = add(num1, num2)
-        elif operation == '-':
-            result = subtract(num1, num2)
-        elif operation == '*':
-            result = multiply(num1, num2)
-        elif operation == '/':
-            result = divide(num1, num2)
-        else:
+        if operation not in operations:
             print("Invalid operation. Please choose +, -, *, or /.")
             continue
 
-        print(f"Result: {result}")
+        result = operations[operation](num1, num2)
+
+        if result.is_integer():
+            print(f"Result: {int(result)}")
+        else:
+            print(f"Result: {result}")
 
     except ValueError:
         print("Invalid input. Please enter numeric values.")
