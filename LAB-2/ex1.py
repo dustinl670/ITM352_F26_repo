@@ -8,6 +8,6 @@ value_as_integer = int(value_entered)
 ValueSquared = value_as_integer ** 2
 
 print("You entered:", value_as_integer)
-print(f"The square of {value_as_integer} is {ValueSquared}.")
+print("The square of", value_as_integer, "is", ValueSquared)
 
-print(f"You entered: {value_as_integer}, and the square of that value is {ValueSquared}.")
+print("You entered: {}, and the square of that value is {}.".format(value_as_integer, ValueSquared))
