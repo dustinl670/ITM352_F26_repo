@@ -2,11 +2,7 @@
 # Name: Dustin Lopera
 # Date: September 11, 2026
 
-import math
-from math import sqrt
+def squareroot(number):
+    return number ** 0.5
 
-print ("Please enter a number to find the square root of that number.")
-
-num1 = float(input("Enter the number: "))
-
-print(sqrt(num1))
+print(squareroot(16)) # This will print 4.0, which is the square root of 16.

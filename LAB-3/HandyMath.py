@@ -1,12 +1,22 @@
-import handymath
-from handymath import midpoint, sqrt, exp, max, min
+# This module provides handy mathematical functions.
 
-print ("Please enter a number: ")
-num1 = float(input("Enter the number: "))
-num2 = float(input("Enter the second number: "))
+def midpoint(num1, num2):  # Returns the number halfway between two numbers.
+    return (num1 + num2) / 2
 
-print (handymath.midpoint(num1, num2))
-print (handymath.sqrt(num1))
-print (handymath.exp(num1, num2))
-print (handymath.max (num1, num2))
-print (handymath.min (num1, num2))
+def sqrt(num):  # Returns the square root of a number.
+    return num ** 0.5
+
+def exp(num1, num2):  # Raises the first number to the power of the second number.
+    return num1 ** num2
+
+def max(num1, num2):  # Returns the larger of two numbers.
+    return num1 if num1 > num2 else num2
+
+def min(num1, num2):  # Returns the smaller of two numbers.
+    return num1 if num1 < num2 else num2
+
+    print("Midpoint of 4 and 8:", midpoint(4, 8))
+    print("Square root of 16:", sqrt(16))
+    print("2 raised to the power of 3:", exp(2, 3))
+    print("Maximum of 5 and 10:", max(5, 10))
+    print("Minimum of 5 and 10:", min(5, 10))
