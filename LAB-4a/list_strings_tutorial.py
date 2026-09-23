@@ -226,4 +226,5 @@ print(locations[(21.3, -157.8)])
 numberstwo = (4, 2, 4, 7 ,4)
 print(len(numbers))
 print(numbers.count(4))
-print(numbers.index(3))
+print(numbers.index())
+
