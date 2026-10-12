@@ -1,0 +1,74 @@
+{
+  "Who is Pokemon's mascot?": {
+    "answers": [
+      "Pikachu",
+      "Charizard",
+      "Bulbasaur",
+      "Squirtle"
+    ],
+    "hint": "The yellow mouse. Come on, man."
+  },
+  "Who was the first Pokemon created?": {
+    "answers": [
+      "Rhydon",
+      "Pikachu",
+      "Bulbasaur",
+      "Mew"
+    ],
+    "hint": "The first Pokemon ever designed."
+  },
+  "What type(s) is the pokemon Bulbasaur?": {
+    "answers": [
+      "Grass/Poison",
+      "Fire",
+      "Grass/Bug",
+      "Grass"
+    ],
+    "hint": "Bulbasaur has two types."
+  },
+  "Who is the creator of Pokemon?": {
+    "answers": [
+      "Satoshi Tajiri",
+      "Ken Sugimori",
+      "Junichi Masuda",
+      "Tsunekazu Ishihara"
+    ],
+    "hint": "The person who created Pokemon."
+  },
+  "Where is Ash Ketchum, main character of Pokemon, from?": {
+    "answers": [
+      "Pallet Town",
+      "Cerulean City",
+      "Vermilion City",
+      "Pewter City"
+    ],
+    "hint": "The town where Ash met Pikachu."
+  },
+  "Who is known as the Land Shark Pokemon?": {
+    "answers": [
+      "Garchomp",
+      "Sandshrew",
+      "Sandslash",
+      "Trapinch"
+    ],
+    "hint": "The dragon/ground Pokemon with an overwhelming bite."
+  },
+  "What kind of animal is the Pokemon Bruxish?": {
+    "answers": [
+      "Fish",
+      "Bird",
+      "Mammal",
+      "Reptile"
+    ],
+    "hint": "Bruxish is known for its vibrant colors and sharp teeth."
+},
+  "What item is required to evolve Charcadet into Armarouge?": {
+    "answers": [
+      "Auspicious Armor",
+      "Malicious Armor",
+      "Fire Stone",
+      "Charcoal"
+    ],
+    "hint": "Charcadet needs to wear something special to evolve."
+  }
+}
