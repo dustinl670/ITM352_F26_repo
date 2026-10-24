@@ -1,41 +1,25 @@
-
+# Read a CSV file containing window cleaning employee data and compute salary statistics.
 
 import csv
-import os
-
-# Check if the file exists and is readable.
-if not os.path.isfile("window_cleaning_employees.csv"):
-    print(f"Error: File not found.")
-    exit(1)
-
-if not os.access("window_cleaning_employees.csv", os.R_OK):
-    print(f"Error: File not readable.")
-    exit(1)
-
-else:
-    file_
-
-
-
 csv_filename = "window_cleaning_employees.csv"
 salaries = []
 
-# Read the CSV file and extract the salaries into the list.
-with open(csv_filename, "r") as csv_file:
+# Read the CSV file and store the salaries in a list
+with open(csv_filename, mode='r') as csv_file:
     reader = csv.reader(csv_file)
-    headers = next(reader)
-    print("Headers:", headers)
-    salary_index = headers.index("Annual_Salary")
+    headers = next(reader)  # Skip the header row
+    print(f"Headers: {headers}")  # Print the headers for debugging
+    salary_index = headers.index("Annual_Salary")  # Find the index of the Salary column
     for row in reader:
-        salary = float(row[salary_index])
+        salary = float(row[salary_index])  # Convert salary to float
         salaries.append(salary)
 
-# Compute salary stats.
-avg_salary = sum(salaries) / len(salaries)
-min_salary = min(salaries)
-max_salary = max(salaries)
+    # Compute salary stats
+    avg_salary = sum(salaries) / len(salaries)
+    min_salary = min(salaries)
+    max_salary = max(salaries)
 
-# Print the stats.
-print(f"Average Salary: ${avg_salary:.2f}")
-print(f"Minimum Salary: ${min_salary:.2f}")
-print(f"Maximum Salary: ${max_salary:.2f}")
+    # Print the salary stats
+    print(f"Average Salary: ${avg_salary:.2f}")
+    print(f"Minimum Salary: ${min_salary:.2f}")
+    print(f"Maximum Salary: ${max_salary:.2f}")

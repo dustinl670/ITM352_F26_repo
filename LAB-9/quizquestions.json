@@ -1,0 +1,18 @@
+{
+    "What is the capital of France?: ": [
+        "Paris",
+        "Berlin",
+        "Rome",
+        "Madrid"
+    ],
+    "What is the capital of Germany?: ": [
+        "Paris",
+        "Berlin",
+        "Rome"
+    ],
+    "The Mona Lisa was painted by who?: ": [
+        "Leonardo DaVinci",
+        "Vincent van Gogh",
+        "Pablo Picasso"
+    ]
+}
