@@ -19,6 +19,10 @@ try:
     df['order_date'] = pd.to_datetime(df['order_date'], errors='coerce')
     print(df.head())
 
+    # Coerce to numeric so bad strings become NaN instead of breaking the math.
+    df['quantity'] = pd.to_numeric(df['quantity'], errors='coerce')
+    df['unit_price'] = pd.to_numeric(df['unit_price'], errors='coerce')
+
     # Calculate total sales per row.
     df['total_sales'] = df['quantity'] * df['unit_price']
 
