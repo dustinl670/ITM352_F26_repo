@@ -6,7 +6,6 @@ import time
 #Temporary fix
 ssl._create_default_https_context = ssl._create_unverified_context
 
-
 def load_csv(filepath):
     print(f"Loading CSV file from: {filepath}")
     start_time = time.time()
@@ -16,7 +15,7 @@ def load_csv(filepath):
         end_time = time.time()
         load_time = end_time - start_time
         print(f"CSV file loaded successfully in {load_time:.2f} seconds.")
-        print(f"Numbner of rows: {len(df)}")
+        print(f"Number of rows: {len(df)}")
         return df
 
     except Exception as e:
