@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Page metadata: character encoding, responsive layout, and browser-tab title. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+
+    <!-- Submit the selected answer to the current /quiz route using POST. -->
+    <form method="POST">
+        <!-- Flask supplies the question text and zero-based question number. -->
+        <h1>Question {{question_number+1}}: {{question}}</h1>
+        <!-- Create one radio-button choice for each option supplied by Flask. -->
+        {% for option in options %}
+            <input type="radio" name="answer" value="{{option}}"> {{option}}<br>
+        {% endfor %}
+        <!-- Submitting sends the selected radio-button value as "answer". -->
+        <button type="submit">Submit Answer</button>
+    </form>
+</body>
+</html>

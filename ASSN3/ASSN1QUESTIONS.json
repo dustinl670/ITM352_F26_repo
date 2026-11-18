@@ -1,0 +1,92 @@
+{
+  "Who is Pokémon's mascot?": {
+    "answers": [
+      "Pikachu",
+      "Charizard",
+      "Bulbasaur",
+      "Squirtle"
+    ],
+    "hint": "The yellow mouse. Come on, man."
+  },
+  "Who was the first Pokémon created?": {
+    "answers": [
+      "Rhydon",
+      "Pikachu",
+      "Bulbasaur",
+      "Mew"
+    ],
+    "hint": "The first Pokémon ever designed."
+  },
+  "What type(s) is the Pokémon Bulbasaur?": {
+    "answers": [
+      "Grass/Poison",
+      "Fire",
+      "Grass/Bug",
+      "Grass"
+    ],
+    "hint": "Bulbasaur has two types."
+  },
+  "Who is the creator of Pokémon?": {
+    "answers": [
+      "Satoshi Tajiri",
+      "Ken Sugimori",
+      "Junichi Masuda",
+      "Tsunekazu Ishihara"
+    ],
+    "hint": "The person who created Pokémon."
+  },
+  "Where is Ash Ketchum, main character of Pokémon, from?": {
+    "answers": [
+      "Pallet Town",
+      "Cerulean City",
+      "Vermilion City",
+      "Pewter City"
+    ],
+    "hint": "The town where Ash met Pikachu."
+  },
+  "Who is known as the Land Shark Pokémon?": {
+    "answers": [
+      "Garchomp",
+      "Sandshrew",
+      "Sandslash",
+      "Trapinch"
+    ],
+    "hint": "The dragon/ground Pokémon with an overwhelming bite."
+  },
+  "What kind of animal is the Pokémon Bruxish?": {
+    "answers": [
+      "Fish",
+      "Bird",
+      "Mammal",
+      "Reptile"
+    ],
+    "hint": "Bruxish is known for its vibrant colors and sharp teeth."
+},
+  "What item is required to evolve Charcadet into Armarouge?": {
+    "answers": [
+      "Auspicious Armor",
+      "Malicious Armor",
+      "Fire Stone",
+      "Charcoal"
+    ],
+    "hint": "Charcadet needs to wear something special to evolve."
+},
+  "Which of these Pokémon is the heaviest?": {
+    "answers": [
+      "Cosmoem",
+      "Groudon",
+      "Metagross",
+      "Wailord"
+    ],
+    "hint": "This Pokémon is as heavy as a star."
+  },
+  "This Pokémon inflicts nightmares into its opponents.": {
+    "answers": [
+      "Darkrai",
+      "Gengar",
+      "Banette",
+      "Mismagius"
+    ],
+    "hint": "This Pokémon is known for its long legs."
+  }
+}

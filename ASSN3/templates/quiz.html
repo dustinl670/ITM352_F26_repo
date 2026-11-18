@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Page metadata: character encoding, responsive layout, and browser-tab title. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the Quiz!</title>
+    <title>Quiz</title>
 </head>
 <body>
-    <title>Quiz</title>
-    <h1>Question 1</h1>
+
+    <!-- Submit the selected answer to the current /quiz route using POST. -->
     <form method="POST">
-
-        <h1>Question: ((question_label)): ((question))</h1>
-        <input type="text" name="answer" required>
-        <button type="submit">Submit</button>
+        <!-- Flask supplies the question text and zero-based question number. -->
+        <h1>Question {{question_number+1}}: {{question}}</h1>
+        <!-- Create one radio-button choice for each option supplied by Flask. -->
+        {% for option in options %}
+            <input type="radio" name="answer" value="{{option}}"> {{option}}<br>
+        {% endfor %}
+        <details>
+            <summary>Ask Jigglypuff for help!</summary>
+            <p>{{ hint }}</p>
+        </details>
+         <button type="submit">Submit Answer</button>
     </form>
-
-
 </body>
 </html>

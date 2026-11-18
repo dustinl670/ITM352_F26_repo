@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <!-- Set the page's character encoding and make it scale correctly on mobile devices. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+</head>
+<body>
+    <!-- Display the score and total question count passed in by the Flask route. -->
+    <h1>Quiz Result</h1>
+    <p>Your score: {{ score }} out of {{ max_questions }}</p>
+    <!-- Return to the welcome route, which starts a fresh quiz. -->
+    <a href="{{ url_for('index') }}">Take Quiz Again</a>
+</body>
+</html>
