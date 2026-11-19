@@ -1,0 +1,326 @@
+/* AI USAGE NOTE: With the prompt "Help me style my Trainer Quiz App", the following CSS was created */
+/* With the foundations of the app style, I played around with colors, spacing, and font to directly customize the interface and make it how I wanted. */
+
+/* Page background, text, and main content */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f5f2ea;
+    color: #252b3b;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+.page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 16px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    font-weight: bold;
+}
+
+.brand-mark {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #252b3b;
+    border-radius: 50%;
+    background: linear-gradient(#df5550 0 42%, #252b3b 42% 58%, #fff 58%);
+}
+
+.card {
+    padding: 32px;
+    background-color: white;
+    border: 1px solid #e8e3d8;
+}
+
+.hero {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.eyebrow {
+    color: #a23832;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 8px 0 16px;
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.intro,
+.page-footer,
+.save-score p {
+    color: #5b6270;
+    line-height: 1.6;
+}
+
+.intro {
+    margin-bottom: 28px;
+}
+
+.page-footer {
+    margin: 24px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Buttons and links */
+.button {
+    display: inline-block;
+    padding: 14px 20px;
+    border: 1px solid #a8302a;
+    background-color: #b63831;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #912b26;
+}
+
+.button-secondary {
+    background-color: white;
+    color: #982c27;
+}
+
+.button-secondary:hover {
+    background-color: #fff1ef;
+}
+
+:focus-visible {
+    outline: 3px solid #2966b0;
+    outline-offset: 3px;
+}
+
+.text-link {
+    color: #982c27;
+    font-weight: bold;
+}
+
+/* Quiz answers and hint */
+.answers {
+    margin: 28px 0;
+    padding: 0;
+    border: 0;
+}
+
+.answers legend {
+    margin-bottom: 12px;
+    color: #5b6270;
+    font-weight: bold;
+}
+
+.answer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 16px;
+    border: 1px solid #dcdfe5;
+    cursor: pointer;
+}
+
+.answer:hover,
+.answer:focus-within {
+    border-color: #b63831;
+    background-color: #fff8f6;
+}
+
+.answer input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #b63831;
+}
+
+.hint {
+    margin-bottom: 24px;
+    padding: 16px;
+    background-color: #F5D9E2;
+}
+
+.hint summary {
+    color: #008393;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hint p {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.feedback {
+    margin: 24px 0;
+    padding: 16px;
+    background-color: #edf5f0;
+    line-height: 1.5;
+}
+
+/* Results, score form, and leaderboard */
+.score-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.score-box {
+    flex: 1 1 140px;
+    padding: 16px;
+    background-color: #f6f5f1;
+}
+
+.score-box span,
+.score-box strong {
+    display: block;
+}
+
+.score-box span {
+    margin-bottom: 6px;
+    color: #5b6270;
+    font-size: 14px;
+}
+
+.score-box strong {
+    font-size: 22px;
+}
+
+.review {
+    margin: 32px 0;
+}
+
+.review-list {
+    padding: 0;
+    list-style: none;
+}
+
+.review-list li {
+    margin-bottom: 12px;
+    padding: 16px;
+    border: 1px solid #e8e3d8;
+}
+
+.review-list span {
+    display: block;
+    margin-top: 6px;
+    color: #5b6270;
+}
+
+.save-score {
+    padding: 20px;
+    background-color: #fff8e2;
+}
+
+.save-score label {
+    font-weight: bold;
+}
+
+.save-score p {
+    margin: 5px 0 16px;
+}
+
+.form-row,
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-row input {
+    flex: 1 1 192px;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #a5a9af;
+    font: inherit;
+}
+
+.actions {
+    margin-top: 28px;
+}
+
+.leaderboard {
+    padding-left: 32px;
+    margin: 28px 0;
+}
+
+.leaderboard li {
+    margin-bottom: 10px;
+    padding: 14px;
+    background-color: #f6f5f1;
+}
+
+.leaderboard li span {
+    overflow-wrap: anywhere;
+}
+
+.leaderboard li strong {
+    float: right;
+    margin-left: 12px;
+}
+
+.empty-state {
+    padding: 16px;
+    background-color: #f6f5f1;
+}
+
+/* Reduce spacing on small screens. */
+@media (max-width: 480px) {
+    .page {
+        padding: 24px 16px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .form-row .button {
+        width: 100%;
+    }
+}
+
+.hint summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hint summary::-webkit-details-marker {
+    display: none;
+}
+
+.hint-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: pink;
+    color: #252b3b;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #252b3b;
+}
