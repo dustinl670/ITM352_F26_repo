@@ -7,11 +7,11 @@
     <title>Quiz Result</title>
 </head>
 <body>
-    <!-- Display the score and total question count passed in by the Flask route. -->
-    <h1>Quiz Result</h1>
+    <!-- Displays quiz score/total questions -->
+    <h1>Quiz Result</h1> 
     <p>Your score: {{ score }} out of {{ max_questions }}</p>
     <p>High score: {{ high_score }} out of {{ max_questions }}</p>
-    <!-- Return to the welcome route, which starts a fresh quiz. -->
+    <!-- Returns to index to restart the quiz.. -->
     <a href="{{ url_for('index') }}">Take Quiz Again</a>
 </body>
 </html>

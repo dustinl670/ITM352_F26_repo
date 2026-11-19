@@ -6,7 +6,7 @@
       "Bulbasaur",
       "Squirtle"
     ],
-    "hint": "The yellow mouse. Come on, man."
+    "hint": "The yellow mouse. Come on, man. I mean... puff."
   },
   "Who was the first Pokémon created?": {
     "answers": [
@@ -33,7 +33,7 @@
       "Junichi Masuda",
       "Tsunekazu Ishihara"
     ],
-    "hint": "The person who created Pokémon."
+    "hint": "The one who played with bugs as a kid."
   },
   "Where is Ash Ketchum, main character of Pokémon, from?": {
     "answers": [
@@ -87,6 +87,6 @@
       "Banette",
       "Mismagius"
     ],
-    "hint": "This Pokémon is known for its long legs."
+    "hint": "This Pokémon is known for its eerie long legs."
   }
 }

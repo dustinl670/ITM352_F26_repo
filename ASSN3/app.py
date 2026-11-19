@@ -3,27 +3,28 @@
 # Date: Nov. 13, 2026
 
 import flask
-from flask import render_template, request, redirect, session, url_for
+from flask import render_template, request, redirect, session, url_for, jsonify
 import json
-from pathlib import Path
 import random
+from pathlib import Path
  
 # Global variables
 score = 0
 question_number = 0
-question_file = Path(__file__).with_name("ASSN1QUESTIONS.json")
+
+question_file = Path(__file__).with_name("ASSN1QUESTIONS.json") # Finding data path for the questions.
 with question_file.open(encoding="utf-8") as file:
     question_data = json.load(file)
 
-high_score_file = Path(__file__).with_name("high_score.json")
+high_score_file = Path(__file__).with_name("high_score.json") # Locates high-score file.
 
-def load_high_score():
+def load_high_score(): # Reads the saved high score.
     try:
         return int(high_score_file.read_text(encoding="utf-8"))
     except (FileNotFoundError, ValueError):
         return 0
     
-
+# Converting JSON file to a question dictionary.
 all_questions = [
     {
         "question": text,
@@ -33,17 +34,27 @@ all_questions = [
     }
     for text, details in question_data.items()
 ]
-max_questions = min(5, len(all_questions))
-questions = random.sample(all_questions, max_questions)
+
+max_questions = min(5, len(all_questions)) # Determines max # of questions.
+selected_questions = random.sample(all_questions, max_questions) # Randomly picks questions from JSON file pool
+questions = [
+    {
+        **question,
+        "options": random.sample(question["options"], len(question["options"])),
+    } # Shuffles options each time.
+    for question in selected_questions
+]
 
 app = flask.Flask(__name__)
+app.secret_key = 'team_rocket_keycard'
 
 @app.route('/')
 def index():
-    global score, question_number, questions
+    global score, question_number, selected_questions
     score = 0
     question_number = 0
     questions = random.sample(all_questions, max_questions)
+    session.pop('answer_feedback', None)
     return render_template('index.html')
 
 @app.route('/quiz', methods=['GET', 'POST'])
@@ -51,40 +62,44 @@ def quiz():
     global score, question_number, max_questions, questions
 
     if request.method == 'POST':
-        if question_number >= max_questions:
+        if request.form.get('action') == 'next':
+            question_number += 1
+            session.pop('answer_feedback', None)
+        elif question_number < max_questions:
+            correct_answer = questions[question_number]["correct_answer"]
+            if request.form.get('answer') == correct_answer:
+                score += 1
+                session['answer_feedback'] = "Nice work, rookie!"
+            else:
+                session['answer_feedback'] = (f"Sorry trainer! The correct answer was: {correct_answer}"
+                )
             return redirect(url_for('quiz'))
         
-        answer = request.form.get('answer')
-        correct_answer = questions[question_number]["correct_answer"]
-
-        is_correct = answer == correct_answer # Compares selected answer with the correct answer
-        if is_correct:
-            score += 1
-        question_number += 1
-
+    # Render the next question
     if question_number < max_questions:
-        # Render the next question
-        return render_template('quiz.html', 
-                               question=questions[question_number]['question'], 
-                               question_number=question_number,
-                               options=questions[question_number]['options'],
-                               hint=questions[question_number]['hint'])
-    else:
-        # Save the score when it sets a new record.
-        high_score = load_high_score()
-        if score > high_score:
-            high_score = score
-            high_score_file.write_text(str(high_score), encoding="utf-8")
+        return render_template('quiz.html',
+                            question=questions[question_number]['question'], 
+                            question_number=question_number,
+                            options=questions[question_number]['options'],
+                            hint=questions[question_number]['hint'],
+                            answer_feedback=session.get('answer_feedback')
+    )
+    
+    high_score = load_high_score()
+    if score > high_score:
+        high_score = score
+        high_score_file.write_text(str(high_score), encoding="utf-8")
 
-        return render_template(
-            'result.html',
-            score=score,
-            max_questions=max_questions,
-            high_score=high_score
-        )
-answer_feedback = session.get('answer_feedback', None)
 
-@app.route('/result')   
+    session.pop('answer_feedback', None)
+    return render_template(
+        'result.html',
+        score=score,
+        max_questions=max_questions,
+        high_score=high_score
+    )
+
+@app.route('/result')
 def result():
     # Display the final score
     global score, max_questions
