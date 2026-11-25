@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | Professor Dust's Trainer Assessment </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>Question {{ question_number + 1 }}: {{ question }}</h1>
+    <main class="page">
+        <div class="brand"><span class="brand-mark" aria-hidden="true"></span> Professor Dust's Trainer Assessment </div>
+        <section class="card">
+            <p class="eyebrow">Question #{{ question_number + 1 }}</p>
+            <h1>{{ question }}</h1>
 
-  {% if answer_feedback %}
-  <p role="status">{{ answer_feedback }}</p>
-  <form method="POST">
-    <button type="submit" name="action" value="next">Next</button>
-  </form>
-  {% else %}
-  <form method="POST">
-    {% for option in options %}
-    <label>
-      <input type="radio" name="answer" value="{{ option }}" required>
-      {{ option }}
-    </label><br>
-    {% endfor %}
+            {% if answer_feedback %}
+                <p class="feedback" role="status">{{ answer_feedback }}</p>
+                <form method="POST">
+                    <button class="button" type="submit" name="action" value="next">Next </button>
+                </form>
+            {% else %}
+                <form method="POST">
+                    <fieldset class="answers">
+                        <legend>Choose your answer</legend>
+                        {% for option in options %}
+                            <label class="answer">
+                                <input type="radio" name="answer" value="{{ option }}" required>
+                                <span>{{ option }}</span>
+                            </label>
+                        {% endfor %}
+                    </fieldset>
 
-    <details>
-      <summary>Jigglypuff, use helping hand!</summary>
-      <p>Jigglypuff: {{ hint }}</p>
-    </details>
+                    <details class="hint">
+                        <summary>
+                          <span class="hint-icon" aria-hidden="true"></span>
+                          Jigglypuff, use Helping Hand!
+                        </summary>
+                        <p>Jigglypuff: {{ hint }}</p>
+                    </details>
 
-    <button type="submit">Submit Answer</button>
-  </form>
-  {% endif %}
+                    <button class="button" type="submit">Submit </button>
+                </form>
+            {% endif %}
+        </section>
+    </main>
 </body>
 </html>

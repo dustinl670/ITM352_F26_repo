@@ -1,17 +1,57 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Set the page's character encoding and make it scale correctly on mobile devices. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Result</title>
+    <title>Results | Trainer Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- Displays quiz score/total questions -->
-    <h1>Quiz Result</h1> 
-    <p>Your score: {{ score }} out of {{ max_questions }}</p>
-    <p>High score: {{ high_score }} out of {{ max_questions }}</p>
-    <!-- Returns to index to restart the quiz.. -->
-    <a href="{{ url_for('index') }}">Take Quiz Again</a>
+    <main class="page">
+        <div class="brand"><span class="brand-mark" aria-hidden="true"></span> Professor Dust's Trainer Assessment </div>
+        <section class="card">
+            <p class="eyebrow">You did it!</p>
+            <h1>Quiz Results:</h1>
+            <div class="score-grid">
+                <div class="score-box"><span>Your score</span><strong>{{ score }} / {{ max_questions }}</strong></div>
+                <div class="score-box"><span>High score</span><strong>{{ high_score }} / {{ max_questions }}</strong></div>
+                {% if time_taken is not none %}
+                    <div class="score-box"><span>Time taken</span><strong>{{ time_taken }} seconds</strong></div>
+                {% endif %}
+            </div>
+
+            <section class="review">
+                {% if wrong_answers %}
+                    <h2>Questions to review:</h2>
+                    <ul class="review-list">
+                        {% for wrong in wrong_answers %}
+                            <li>
+                                <strong>{{ wrong.question }}</strong>
+                                <span>Your answer: {{ wrong.your_answer }}</span>
+                                <span>Correct answer: {{ wrong.correct_answer }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="feedback">You got all questions correct, you're ready for the World of Pokémon!</p>
+                {% endif %}
+            </section>
+
+            {% if session.get('completed_score') is not none %}
+                <form class="save-score" action="{{ url_for('leaderboard') }}" method="POST">
+                    <label for="name">Enter your name to join the Hall of Fame.</label>
+                    <div class="form-row">
+                        <input id="name" name="name" maxlength="40" placeholder="Trainer Name" required>
+                        <button class="button" type="submit">Save score</button>
+                    </div>
+                </form>
+            {% endif %}
+
+            <div class="actions">
+                <a class="button button-secondary" href="{{ url_for('index') }}">Take quiz again</a>
+                <a class="text-link" href="{{ url_for('leaderboard') }}">Hall of Fame <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# Get a JSON file from City of Chicago's data portal and analyze driver types.
+# Get a JSON file from City of Chicago's data portal and analyze driver types
 
 import pandas as pd
 import requests
@@ -8,7 +8,7 @@ response = requests.get(url)
 
 response_json = response.json()
 
-print("Driver types and counts:")
+print("Driver types and counts:" )
 print(response_json)
 
 response_df = pd.DataFrame.from_records(response_json)
